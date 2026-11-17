@@ -1,5 +1,49 @@
 # last-frost-date-hardiness-zone-mcp
 
+**USDA hardiness zone by ZIP code, average last spring and first fall frost dates, a frost forecast and a planting calendar, as an MCP server.** Free and hosted: no API key, no sign-up.
+
+Hosted MCP URL (Streamable HTTP):
+
+```
+https://last-frost-date-hardiness-zone-mcp.lipmichal.workers.dev/mcp
+```
+
+## Quick start
+
+### Claude
+
+Claude Desktop or claude.ai: Settings > Connectors > Add custom connector, then paste the URL above.
+
+Claude Code:
+
+```
+claude mcp add --transport http last-frost-date https://last-frost-date-hardiness-zone-mcp.lipmichal.workers.dev/mcp
+```
+
+Claude Desktop config file (`claude_desktop_config.json`), through the `mcp-remote` bridge:
+
+```json
+{
+  "mcpServers": {
+    "last-frost-date": { "command": "npx", "args": ["-y", "mcp-remote", "https://last-frost-date-hardiness-zone-mcp.lipmichal.workers.dev/mcp"] }
+  }
+}
+```
+
+### Cursor
+
+Add to `~/.cursor/mcp.json`.
+
+```json
+{
+  "mcpServers": {
+    "last-frost-date": { "url": "https://last-frost-date-hardiness-zone-mcp.lipmichal.workers.dev/mcp" }
+  }
+}
+```
+
+## About
+
 Last frost dates and USDA hardiness zones for AI assistants. Ask what growing zone a ZIP code is in, when the last spring frost usually comes, whether it will freeze this week, or when to start tomatoes indoors.
 
 This is a Model Context Protocol (MCP) server. It reads the USDA 2023 Plant Hardiness Zone Map by ZIP code (phzmapi.org) and Open-Meteo historical weather, forecast and geocoding at call time, and computes frost dates from 30 complete seasons of daily minimum temperatures. It needs no API key.
@@ -21,7 +65,7 @@ Every result has structured JSON, a plain-text summary, `as_of`, `source` and `m
 - Local last spring and first fall frost dates with 1-in-10 year odds, computed from 30 seasons of daily minimum temperatures for any place on Earth, Southern Hemisphere included.
 - Whether a frost or freeze is forecast in the next 16 days, and the frost of the current season so far.
 
-## Install
+## Other clients and local install
 
 ### Hosted (custom connector, ChatGPT developer mode, any remote MCP client)
 
@@ -29,18 +73,6 @@ Paste this URL. No token, no sign-up.
 
 ```
 https://last-frost-date-hardiness-zone-mcp.lipmichal.workers.dev/mcp
-```
-
-### Cursor
-
-Add to `~/.cursor/mcp.json`.
-
-```json
-{
-  "mcpServers": {
-    "last-frost-date": { "url": "https://last-frost-date-hardiness-zone-mcp.lipmichal.workers.dev/mcp" }
-  }
-}
 ```
 
 ### VS Code
