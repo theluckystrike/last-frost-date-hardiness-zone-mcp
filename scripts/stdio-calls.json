@@ -1,0 +1,6 @@
+[
+  ["hardiness_zone", {"zip": "05401"}],
+  ["frost_dates", {"location": "Burlington, VT"}],
+  ["frost_forecast", {"location": "80202", "days": 10}],
+  ["planting_calendar", {"location": "60614", "crops": ["tomato", "peas", "garlic"]}]
+]

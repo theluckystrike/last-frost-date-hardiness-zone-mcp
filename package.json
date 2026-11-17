@@ -1,0 +1,56 @@
+{
+  "name": "last-frost-date-hardiness-zone-mcp",
+  "version": "1.0.0",
+  "description": "Last frost date and USDA hardiness zone MCP server: planting zone by ZIP code, average last spring and first fall frost dates, growing season length, frost forecast and a vegetable planting calendar. Hosted, no key.",
+  "type": "module",
+  "license": "MIT",
+  "author": "theluckystrike",
+  "mcpName": "io.github.theluckystrike/last-frost-date-hardiness-zone-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/last-frost-date-hardiness-zone-mcp"
+  },
+  "homepage": "https://www.mcpstamp.com/servers/",
+  "bin": {
+    "last-frost-date-hardiness-zone-mcp": "dist/stdio.js"
+  },
+  "main": "dist/stdio.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test",
+    "start": "node dist/stdio.js",
+    "deploy": "npx wrangler@4 deploy",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "last-frost-date",
+    "frost-dates",
+    "hardiness-zone",
+    "planting-zone",
+    "growing-zone",
+    "usda-hardiness-zone",
+    "gardening",
+    "vegetable-garden",
+    "planting-calendar",
+    "cloudflare-workers"
+  ]
+}
